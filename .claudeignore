@@ -1,0 +1,24 @@
+# Что Claude НЕ должен индексировать/читать (экономия контекста и времени).
+# Тяжёлое и нечитаемое — но PNG/JPG НЕ игнорируем (нужны для vision: /sheet, /still, превью).
+
+**/node_modules/
+_ASSETS/node_modules/
+_ASSETS/_gallery/
+.git/
+
+# Бинарные медиа (Claude всё равно не читает их содержимое)
+*.mp4
+*.mov
+*.webm
+*.mkv
+*.mp3
+*.wav
+*.m4a
+
+# Логи и временное
+**/out/_render.log
+**/out/_bench_*.log
+**/out/_gpu.log
+
+# Секреты
+.env

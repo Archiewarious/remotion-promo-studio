@@ -1,0 +1,26 @@
+{
+  "name": "shared-remotion-deps",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Общая node_modules для всех проектов (junction через mklink /J). Обновлять Remotion здесь -> обновится во всех активных проектах.",
+  "dependencies": {
+    "@remotion/animation-utils": "^4.0.465",
+    "@remotion/captions": "^4.0.0",
+    "@remotion/cli": "^4.0.0",
+    "@remotion/gif": "^4.0.465",
+    "@remotion/google-fonts": "^4.0.465",
+    "@remotion/layout-utils": "^4.0.465",
+    "@remotion/lottie": "^4.0.0",
+    "@remotion/motion-blur": "^4.0.465",
+    "@remotion/paths": "^4.0.465",
+    "@remotion/shapes": "^4.0.465",
+    "@remotion/transitions": "^4.0.465",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "typescript": "^5.0.0"
+  }
+}

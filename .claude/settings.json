@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx remotion:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(ffprobe:*)",
+      "Bash(yt-dlp:*)",
+      "Bash(py scripts/:*)",
+      "Bash(py ../scripts/:*)",
+      "Bash(powershell -File:*)",
+      "Bash(powershell -NoProfile:*)"
+    ]
+  }
+}

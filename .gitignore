@@ -1,0 +1,110 @@
+# === Секреты ===
+.env
+*.key
+*.pem
+
+# === Node / npm ===
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# === Remotion ===
+out/
+build/
+.cache/
+.remotion/
+
+# === Большие медиафайлы ===
+# Видео-исходники не коммитим (тяжёлые, обычно от клиента)
+public/*.mp4
+public/*.mov
+public/*.mkv
+public/*.webm
+public/*.flac
+public/*.wav
+# Резервные копии public
+public_cifs/
+
+# === Готовые рендеры и превью ===
+*_preview.*
+*_test.*
+*_temp.*
+*.bak
+_old_*
+_unused/
+
+# === Cowork sandbox / временные ===
+_tools/
+chrome.zip
+*.tar.gz
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# === Adobe / Premiere артефакты ===
+*.prproj
+*.prin
+*.pek
+Adobe Premiere Pro Auto-Save/
+
+# === Логи ===
+*.log
+npm-debug.log*
+
+# === Опционально: исключить конкретные проекты ===
+# Раскомментируй если не хочешь коммитить свои проекты
+# MyProject/
+# source/
+
+# === Публичный релиз: общие кэши ассетов (тяжёлые, перекачиваются через /broll, 3rd-party) ===
+_ASSETS/broll/**
+!_ASSETS/broll/README.md
+!_ASSETS/broll/_index.json
+!_ASSETS/broll/_CREDITS.txt
+_ASSETS/music/*
+!_ASSETS/music/.gitkeep
+_ASSETS/fonts/*
+!_ASSETS/fonts/.gitkeep
+
+# === Бинарные медиа везде (в репо — только каталог/метаданные) ===
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.flac
+
+# === Python ===
+__pycache__/
+*.pyc
+*.pyo
+
+# === Локальное / машинно-зависимое (не для общего публичного репо) ===
+*.lnk
+.agents/
+.claude/skills/music-downloader/
+.claude/settings.local.json
+skills-lock.json
+scripts/_wtest/
+**/src/kit/
+
+# === Клиентская зона приёма (конфиденциально) ===
+incoming/*
+!incoming/.gitkeep
+
+# === Секреты (defense-in-depth) ===
+.env.*
+!.env.example
