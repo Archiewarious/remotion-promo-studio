@@ -4,18 +4,19 @@
 
 A workspace template for making promo videos with [Remotion](https://www.remotion.dev) v4 + Claude Code.
 
-## Quick start
+## Quick start (the simplest path)
 
-On your machine you need **Node ≥ 20**, **FFmpeg**, and **Python 3** installed (links under [Requirements](#requirements)).
+1. **Get the project** — pick any:
+   - clone it: `git clone https://github.com/Archiewarious/remotion-promo-studio`
+   - or download the ZIP (green **Code** button -> **Download ZIP**), then unzip
+   - or just tell Claude Code: *"clone https://github.com/Archiewarious/remotion-promo-studio and open it"*
+2. **Open Claude Code** in the folder.
+3. **Say hi** — type `hi` (or *"what is this?"*). Claude explains the project and what you can do.
+4. **Say what you want** — e.g. *"make a video about my coffee shop"*. Claude checks your machine, sets up whatever's needed, and builds the video with you.
 
-1. Download or clone this folder.
-2. Open Claude Code in it.
-3. Say: **"set up the workspace"** — Claude installs the dependencies and checks the environment.
+You don't run setup commands yourself: Claude reads `CLAUDE.md`, adapts to your OS, and tells you exactly what to install if anything is missing. Video creation follows the **`video-pipeline`** skill (process: `UNIVERSAL_VIDEO_PROMPT.md`) — brief to 4K final.
 
-Then just ask:
-> "Make a video about **topic**. Brief: **text or link**"
-
-Claude runs the **`video-pipeline`** skill — the whole flow from brief to a 4K final, using the shared engine, the Remotion rules, and the slash-commands below.
+> Want automatic stock b-roll? Add free **Pexels/Pixabay** keys to `.env` (optional) — Claude shows you how.
 
 ---
 
