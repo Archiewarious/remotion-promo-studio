@@ -5,6 +5,8 @@
 Среда — **Claude Code на Windows** (Bash через Git Bash; кириллица в пути `Про видео` — OK). 16 ГБ RAM.
 
 ## С чего начать
+- **Свежий клон** (нет `_ASSETS/node_modules`) или просьба «настрой воркспейс» → bootstrap:
+  `_ASSETS\_install.bat` (npm install в общий стор) + проверить `ffmpeg`/`node`/`py` в PATH.
 - **Делаем или правим видео** → навык **`video-pipeline`**: он ведёт весь пайплайн и сам подтягивает
   процесс/движок/правила Remotion по мере надобности. Не тащи эти знания в контекст заранее.
 - **Новый проект** → `/newvid Name` (или `powershell -File newproject.ps1 Name`; имя — латиницей).
