@@ -62,9 +62,13 @@ def search_pexels(key, query, n, orientation, locale, size=None, page=1):
     data = http_get_json("https://api.pexels.com/videos/search?" + urllib.parse.urlencode(params), {"Authorization": key})
     out = []
     for v in data.get("videos", []):
+        try:
+            vid = int(v["id"])
+        except (KeyError, TypeError, ValueError):
+            continue  # API id must be a plain int - never a path fragment
         seg = (v.get("url") or "").rstrip("/").split("/")[-1]
         desc = re.sub(r"-?\d+$", "", seg) or query
-        out.append({"source": "pexels", "id": v["id"], "desc": desc, "tags": desc.replace("-", ", "),
+        out.append({"source": "pexels", "id": vid, "desc": desc, "tags": desc.replace("-", ", "),
                     "url": v.get("url"), "author": (v.get("user") or {}).get("name", ""),
                     "duration": v.get("duration"), "poster": v.get("image"),
                     "files": v.get("video_files", []), "_kind": "pexels"})
@@ -78,10 +82,14 @@ def search_pixabay(key, query, count, lang):
     data = http_get_json("https://pixabay.com/api/videos/?" + urllib.parse.urlencode(params))
     out = []
     for v in data.get("hits", [])[:count]:
+        try:
+            vid = int(v["id"])
+        except (KeyError, TypeError, ValueError):
+            continue  # API id must be a plain int - never a path fragment
         tags = v.get("tags", query)
         vids = v.get("videos", {})
         poster = next((vv.get("thumbnail") for vv in vids.values() if vv.get("thumbnail")), "")
-        out.append({"source": "pixabay", "id": v["id"], "desc": tags, "tags": tags,
+        out.append({"source": "pixabay", "id": vid, "desc": tags, "tags": tags,
                     "url": v.get("pageURL", ""), "author": v.get("user", ""),
                     "duration": v.get("duration"), "poster": poster,
                     "files": vids, "_kind": "pixabay"})
@@ -210,6 +218,8 @@ def main():
             if (r["source"], r["id"]) in seen or os.path.exists(dest):
                 print("  [have] %s" % fname); taken += 1; continue
             os.makedirs(cat_dir, exist_ok=True)
+            if not os.path.realpath(dest).startswith(os.path.realpath(cat_dir) + os.sep):
+                print("  [skip] unsafe path: %s" % fname); continue  # defense-in-depth
             try:
                 size = download(best["url"], dest)
                 rel = os.path.join(cat, fname).replace("\\", "/")
